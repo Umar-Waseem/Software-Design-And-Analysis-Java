@@ -42,6 +42,10 @@ class mainClass{
         System.out.println("Please enter your name: ");
         String name = getStringInput();
         printBlue("Hey there " + name.toUpperCase() + " Welcome to the Account Management System");
+
+        savings sAcc = new savings( 111000.0);
+        sAcc.printStatement();
+        sAcc.calculateZakat();
     }
 
 }

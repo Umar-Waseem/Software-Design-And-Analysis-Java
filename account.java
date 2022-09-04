@@ -1,3 +1,7 @@
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.UUID;
+
 abstract class account {
     String accountNumber;
     double balance;
@@ -9,10 +13,12 @@ abstract class account {
         this.dateCreated = "";
     }
 
-    public account(String accountNumber, double balance, String dateCreated){
-        this.accountNumber = accountNumber;
+    public account(double balance){
+        this.accountNumber = UUID.randomUUID().toString(); // generate random account number - unique number
         this.balance = balance;
-        this.dateCreated = dateCreated;
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+        this.dateCreated = dtf.format(now);
     }
 
     // -------------------------------  getters ------------------------------- //
@@ -44,8 +50,9 @@ abstract class account {
 
     // -------------------------------  utility methods ------------------------------- //
     abstract double checkBalance();
-    abstract void makeDeposit(double amount);
     abstract void printStatement();
+    abstract void makeDeposit(double amount);
+    abstract void transferAmount(double amount);
     abstract double calculateZakat();
     abstract void withdraw(double amount); // different limit of withdrawal for different accounts
 
