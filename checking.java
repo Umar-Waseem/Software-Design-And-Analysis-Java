@@ -28,6 +28,7 @@ public class checking extends Account {
 
     @Override
     double checkBalance() {
+        System.out.println("Your checking account balance is: " + this.balance);
         return this.balance;
     }
 

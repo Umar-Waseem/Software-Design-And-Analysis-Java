@@ -43,13 +43,10 @@ class mainClass{
         // String name = getStringInput();
         // printBlue("Hey there " + name.toUpperCase() + " Welcome to the Account Management System");
 
-        // array of accounts
-        // polymorphism
+        // Customer c1 = new Customer("Umar", "Islamabad", "123456789");
+        // c1.customerInfo();
 
-        Customer c1 = new Customer("Umar", "Islamabad", "123456789");
-        c1.customerInfo();
-
-
+        
     }
 
 }

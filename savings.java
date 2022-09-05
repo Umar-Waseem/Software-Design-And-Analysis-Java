@@ -44,8 +44,8 @@ public class savings extends Account {
 
     @Override
     double checkBalance() {
+        System.out.println("Your savings account balance is: " + this.balance);
         return this.balance;
-        // todo display name
     }
 
     @Override
@@ -73,19 +73,19 @@ public class savings extends Account {
 
     @Override
     void transferAmount(double amount) {
-        if (amount > this.balance){
-            System.out.println("Insufficient funds");
-        } else {
-            this.balance -= amount;
-            System.out.println("Transfer of " +  amount  +  " successful");
-        }
+        // if (amount > this.balance){
+        //     System.out.println("Insufficient funds");
+        // } else {
+        //     this.balance -= amount;
+        //     System.out.println("Transfer of " +  amount  +  " successful");
+        // }
         // todo transfer to specific account
     }
 
     // -------------------------------  class own methods ------------------------------- //
     
-    String displayAllDeductions(){
-        return this.deductionRecord;
+    void displayAllDeductions(){
+        System.out.println(this.deductionRecord);
     }
-    // todo void calculateInterest(){}
+    // todo void calculateInterestRate(){}
 }
