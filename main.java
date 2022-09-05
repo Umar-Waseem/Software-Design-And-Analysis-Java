@@ -44,14 +44,12 @@ class mainClass{
         // printBlue("Hey there " + name.toUpperCase() + " Welcome to the Account Management System");
 
         // array of accounts
-        account[] accounts = new savings[2];
-        accounts[0] = new savings(10000);
-        accounts[1] = new savings(123123);
-        // accounts[1] = new checking(10000);
+        // polymorphism
 
-        for(int i=0; i<accounts.length; i++){
-            accounts[i].printStatement();
-        }
+        Customer c1 = new Customer("Umar", "Islamabad", "123456789");
+        c1.customerInfo();
+
+
     }
 
 }

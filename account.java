@@ -2,23 +2,26 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
-abstract class account {
+abstract class Account {
     String accountNumber;
     double balance;
     String dateCreated;
+    String deductionRecord;
     
-    public account(){
+    public Account(){
         this.accountNumber = "";
         this.balance = 0.0;
         this.dateCreated = "";
+        this.deductionRecord = "";
     }
 
-    public account(double balance){
+    public Account(double balance){
         this.accountNumber = UUID.randomUUID().toString(); // generate random account number - unique number
         this.balance = balance;
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
         this.dateCreated = dtf.format(now);
+        this.deductionRecord = "";
     }
 
     // -------------------------------  getters ------------------------------- //

@@ -1,21 +1,31 @@
-class customer {
+import java.util.UUID;
+
+class Customer {
     String name;
     String address;
     String phoneNumber;
     String accountNumber;
+    // Account[] customersAccounts;
+    
 
-    public customer(){
+    public Customer(){
         this.name = "";
         this.address = "";
         this.phoneNumber = "";
-        this.accountNumber = "";
+        // this.customersAccounts = new Account[2];
     }
     
-    public customer(String name, String address, String phoneNumber, String accountNumber){
+    public Customer(String name, String address, String phoneNumber){
         this.name = name;
         this.address = address;
         this.phoneNumber = phoneNumber;
-        this.accountNumber = accountNumber;
+        this.accountNumber = UUID.randomUUID().toString();
+        // this.customersAccounts = new Account[2];
+        // customersAccounts[0] = new checking(0);
+        // customersAccounts[1] = new savings(0);
+
+        // customersAccounts[0].setAccountNumber(this.accountNumber);
+        // customersAccounts[1].setAccountNumber(this.accountNumber);
     }
 
     // -------------------------------  getters ------------------------------- //
@@ -31,9 +41,7 @@ class customer {
         return this.phoneNumber;
     }
 
-    public String getAccountNumber() {
-        return this.accountNumber;
-    }
+
 
     // -------------------------------  setters ------------------------------- //
     public void setName(String name) {
@@ -48,9 +56,6 @@ class customer {
         this.phoneNumber = phoneNumber;
     }
 
-    public void setAccountNumber(String accountNumber) {
-        this.accountNumber = accountNumber;
-    }
 
 
     // -------------------------------  utility methods ------------------------------- //
@@ -59,4 +64,27 @@ class customer {
         System.out.println("Name: " + name + "\nAddress: " + address + "\nPhone Number: " + phoneNumber + "\nAccount Number: " + accountNumber);
     }
     
+    // make a new account
+    public void makeNewAccount(){
+
+    }
+
+    public void closeAccount(){
+
+    }
+
+    public void customerInfo(){
+        System.out.println("Name: " + name + "\nAddress: " + address + "\nPhone Number: " + phoneNumber + "\nAccount Number: " + accountNumber);
+    }
+
+    // public void getCustomerCheckingAccountInfo(){
+    //     customerInfo();
+    //     this.customersAccounts[0].printStatement();
+    // }
+
+    // public void getCustomerSavingsAccountInfo(){
+    //     customerInfo();
+    //     this.customersAccounts[1].printStatement();
+    // }
+
 }
