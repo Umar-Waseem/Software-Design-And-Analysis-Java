@@ -38,14 +38,20 @@ class mainClass{
         return inputValue;
     }
     public static void main(String[] args){
-        clrScreen(); 
-        System.out.println("Please enter your name: ");
-        String name = getStringInput();
-        printBlue("Hey there " + name.toUpperCase() + " Welcome to the Account Management System");
+        // clrScreen(); 
+        // System.out.println("Please enter your name: ");
+        // String name = getStringInput();
+        // printBlue("Hey there " + name.toUpperCase() + " Welcome to the Account Management System");
 
-        savings sAcc = new savings( 111000.0);
-        sAcc.printStatement();
-        sAcc.calculateZakat();
+        // array of accounts
+        account[] accounts = new savings[2];
+        accounts[0] = new savings(10000);
+        accounts[1] = new savings(123123);
+        // accounts[1] = new checking(10000);
+
+        for(int i=0; i<accounts.length; i++){
+            accounts[i].printStatement();
+        }
     }
 
 }

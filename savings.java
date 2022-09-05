@@ -4,6 +4,13 @@ import java.util.UUID;
 
 public class savings extends account {
 
+    savings(){
+        super();
+        this.accountNumber = "";
+        this.balance = 0.0;
+        this.dateCreated = "";
+    }
+
     savings(double balance){
         this.accountNumber = UUID.randomUUID().toString(); // generate random account number - unique number
         this.balance = balance;
@@ -51,7 +58,7 @@ public class savings extends account {
 
     @Override
     void printStatement() {
-        System.out.println("Account Number: " + this.accountNumber + "\nBalance: " + this.balance + "\nDate Created: " + this.dateCreated);
+        System.out.println("Savings Account Number: " + this.accountNumber + "\nBalance: " + this.balance + "\nDate Created: " + this.dateCreated);
         // todo print customer information
     }
 
@@ -69,4 +76,5 @@ public class savings extends account {
     // -------------------------------  class own methods ------------------------------- //
     
     // todo void displayAllDeductions(){}
+    // todo void calculateInterest(){}
 }
