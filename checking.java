@@ -1,6 +1,5 @@
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.UUID;
 
 public class checking extends Account {
 
@@ -16,12 +15,10 @@ public class checking extends Account {
         this.freeTransactionsForDeposit = 0;
     }
 
-    checking(double balance) {
-        this.accountNumber = UUID.randomUUID().toString(); // generate random account number - unique number
+    checking(double balance, String date, String accountNumber) {
+        this.dateCreated = date;
+        this.accountNumber = accountNumber;
         this.balance = balance;
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-        LocalDateTime now = LocalDateTime.now();
-        this.dateCreated = dtf.format(now);
         this.freeTransactionsForWithdrawal  = 0;
         this.freeTransactionsForDeposit = 0;
     }
@@ -39,10 +36,10 @@ public class checking extends Account {
     
     @Override
     void makeDeposit(double amount) {
-        if(this.freeTransactionsForDeposit < 3){
+        if(this.freeTransactionsForDeposit < 2){
             this.freeTransactionsForDeposit++;
             this.balance += amount;
-            System.out.println("Deposited " + amount + " successfully");
+            System.out.println("Deposited " + amount + " successfully in your checking account");
         }
         else{
             
@@ -52,7 +49,7 @@ public class checking extends Account {
 
             this.balance -= 10.0; 
             this.balance += amount;
-            System.out.println("Deposited " + amount + " successfully with deduction of 10.0 deposit fee");
+            System.out.println("Deposited " + amount + " successfully in your checking account with deduction of 10.0 deposit fee");
         
         }
 
@@ -78,7 +75,7 @@ public class checking extends Account {
         } 
         else {
 
-            if(this.freeTransactionsForWithdrawal < 3){
+            if(this.freeTransactionsForWithdrawal < 2){
                 this.freeTransactionsForWithdrawal++;
                 this.balance -= amount;
                 System.out.println("Withdrawal of " + amount + " successful");

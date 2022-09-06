@@ -1,6 +1,5 @@
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.UUID;
 
 public class savings extends Account {
 
@@ -14,12 +13,10 @@ public class savings extends Account {
         this.deductionRecord = "";
     }
 
-    savings(double balance){
-        this.accountNumber = UUID.randomUUID().toString(); // generate random account number - unique number
+    savings(double balance, String date, String accountNumber){
+        this.accountNumber = accountNumber;
         this.balance = balance;
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-        LocalDateTime now = LocalDateTime.now();
-        this.dateCreated = dtf.format(now);
+        this.dateCreated = date;
         this.deductionRecord = "";
     }
 

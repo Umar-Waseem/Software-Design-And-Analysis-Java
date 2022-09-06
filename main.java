@@ -43,8 +43,23 @@ class mainClass{
         // String name = getStringInput();
         // printBlue("Hey there " + name.toUpperCase() + " Welcome to the Account Management System");
 
-        // Customer c1 = new Customer("Umar", "Islamabad", "123456789");
-        // c1.customerInfo();
+        Customer c1 = new Customer("Umar", "Islamabad", "123456789");
+        
+        c1.openNewAccount(1);
+        c1.getCustomerCheckingAccount().makeDeposit(1000);
+        printBlue("--------------");
+        printBlue("--------------");
+        c1.openNewAccount(2);
+        printBlue("--------------");
+        c1.openNewAccount(1);
+        printBlue("--------------");
+        c1.openNewAccount(2);
+        printBlue("--------------");
+        c1.openNewAccount(1);
+        printBlue("--------------");
+        c1.openNewAccount(2);
+        printBlue("--------------");
+
 
         
     }
