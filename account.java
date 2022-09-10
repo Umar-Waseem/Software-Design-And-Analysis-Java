@@ -53,9 +53,9 @@ abstract class Account {
 
     // -------------------------------  utility methods ------------------------------- //
     abstract double checkBalance();
-    abstract void printStatement();
+    abstract void printStatement(Customer customer);
     abstract void makeDeposit(double amount);
-    abstract void transferAmount(double amount);
+    abstract void transferAmount(Account destAccount);
     abstract double calculateZakat();
     abstract void withdraw(double amount); // different limit of withdrawal for different accounts
 

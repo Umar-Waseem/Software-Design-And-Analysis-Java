@@ -1,5 +1,6 @@
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
 
 public class checking extends Account {
 
@@ -30,7 +31,8 @@ public class checking extends Account {
     }
 
     @Override
-    void printStatement() {
+    void printStatement(Customer customer) {
+        customer.printCustomer();
         System.out.println("Checking Account Number: " + this.accountNumber + "\nBalance: " + this.balance + "\nDate Created: " + this.dateCreated + "\n");
     }
     
@@ -56,8 +58,22 @@ public class checking extends Account {
     }
 
     @Override
-    void transferAmount(double amount) {
-        
+    void transferAmount(Account destAccount) {
+        System.out.println("Enter the amount you want to transfer: ");
+        Scanner sc = new Scanner(System.in);
+        double amount = sc.nextDouble();
+        if(this.balance < amount){
+            System.out.println("Insufficient balance");
+        }
+        else{
+            this.balance -= amount;
+            destAccount.setBalance(destAccount.getBalance() + amount);
+            System.out.println("Transferred " + amount + " successfully to " + destAccount.accountNumber);
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+            LocalDateTime now = LocalDateTime.now();
+            this.deductionRecord += "Transfer of " + amount + " to " + destAccount.accountNumber + " successful on " + dtf.format(now) + "\n";
+        }
+        sc.close();
     }
     
     @Override

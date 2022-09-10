@@ -114,13 +114,21 @@ class Customer {
         System.out.println("Name: " + name + "\nAddress: " + address + "\nPhone Number: " + phoneNumber + "\nAccount Number: " + accountNumber);
     }
     
-    // make a new account
-    public void makeNewAccount(){
-
-    }
 
     public void closeAccount(){
-
+        if(this.noOfCheckingAccounts == 0 && this.noOfSavingsAccounts == 0){
+            System.out.println("No account found for this customer");
+        }
+        else{
+            if(this.noOfCheckingAccounts == 1){
+                this.customersAccounts[0] = null;
+                this.noOfCheckingAccounts = 0;
+            }
+            if(this.noOfSavingsAccounts == 1){
+                this.customersAccounts[1] = null;
+                this.noOfSavingsAccounts = 0;
+            }
+        }
     }
 
     public void customerInfo(){
@@ -182,14 +190,12 @@ class Customer {
 
     }
 
-    // public void getCustomerCheckingAccountInfo(){
-    //     customerInfo();
-    //     this.customersAccounts[0].printStatement();
-    // }
+    public void getCustomerCheckingAccountInfo(){
+        this.customersAccounts[0].printStatement(this);
+    }
 
-    // public void getCustomerSavingsAccountInfo(){
-    //     customerInfo();
-    //     this.customersAccounts[1].printStatement();
-    // }
+    public void getCustomerSavingsAccountInfo(){
+        this.customersAccounts[1].printStatement(this);
+    }
 
 }

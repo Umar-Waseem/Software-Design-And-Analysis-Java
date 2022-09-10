@@ -1,5 +1,6 @@
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
 
 public class savings extends Account {
 
@@ -63,20 +64,27 @@ public class savings extends Account {
     }
 
     @Override
-    void printStatement() {
+    void printStatement(Customer customer) {
+        customer.printCustomer();
         System.out.println("Savings Account Number: " + this.accountNumber + "\nBalance: " + this.balance + "\nDate Created: " + this.dateCreated + "\n");
-        // todo print customer information
     }
 
     @Override
-    void transferAmount(double amount) {
-        // if (amount > this.balance){
-        //     System.out.println("Insufficient funds");
-        // } else {
-        //     this.balance -= amount;
-        //     System.out.println("Transfer of " +  amount  +  " successful");
-        // }
-        // todo transfer to specific account
+    void transferAmount(Account destAccount) {
+        System.out.println("Enter the amount you want to transfer: ");
+        Scanner sc = new Scanner(System.in);
+        double amount = sc.nextDouble();
+        if (amount > this.balance){
+            System.out.println("Insufficient funds in your savings account");
+        } else {
+            this.balance -= amount;
+            destAccount.setBalance(destAccount.getBalance() + amount);
+            System.out.println("Transfer of " +  amount  +  " successful from your savings account to " + destAccount.accountNumber);
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+            LocalDateTime now = LocalDateTime.now();
+            this.deductionRecord += "Transfer of " + amount + " to " + destAccount.accountNumber + " successful on " + dtf.format(now) + "\n";
+        }
+        sc.close();
     }
 
     // -------------------------------  class own methods ------------------------------- //
