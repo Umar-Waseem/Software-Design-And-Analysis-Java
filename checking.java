@@ -2,12 +2,12 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
-public class checking extends Account {
+public class Checking extends Account {
 
     int freeTransactionsForWithdrawal;
     int freeTransactionsForDeposit;
 
-    checking() {
+    Checking() {
         super();
         this.accountNumber = "";
         this.balance = 0.0;
@@ -16,7 +16,7 @@ public class checking extends Account {
         this.freeTransactionsForDeposit = 0;
     }
 
-    checking(double balance, String date, String accountNumber) {
+    Checking(double balance, String date, String accountNumber) {
         this.dateCreated = date;
         this.accountNumber = accountNumber;
         this.balance = balance;
@@ -110,8 +110,8 @@ public class checking extends Account {
     }
 
     // ------------------------------- class own methods ------------------------------- //
-    String displayAllDeductions(){
-        return this.deductionRecord;
+    void printDeductionRecord(){
+        System.out.println(this.deductionRecord);
     }
 
 }

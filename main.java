@@ -1,4 +1,3 @@
-import java.util.Scanner;
 
 /*
     *Author: Muhammad Umar Waseem
@@ -7,62 +6,12 @@ import java.util.Scanner;
     ?Description: Console-Based Account Management System
  */
 
-class mainClass{
+class MainClass {
 
-    static void clrScreen() {
-        System.out.print("\033[H\033[2J");
-    }
+    public static void main(String[] args) {
 
-    static void printBlue(String value){
-        System.out.println("\033[94m" + value + "\033[0m" );
-    }
+        MenuView.menu();
 
-    static String getStringInput(){
-        Scanner input = new Scanner(System.in);
-        String inputValue = input.nextLine();
-        input.close();
-        return inputValue;
-    }
-
-    static int getIntInput(){
-        Scanner input = new Scanner(System.in);
-        int inputValue = input.nextInt();
-        input.close();
-        return inputValue;
-    }
-
-    static double getDoubleInput(){
-        Scanner input = new Scanner(System.in);
-        double inputValue = input.nextDouble();
-        input.close();
-        return inputValue;
-    }
-    public static void main(String[] args){
-        // clrScreen(); 
-        // System.out.println("Please enter your name: ");
-        // String name = getStringInput();
-        // printBlue("Hey there " + name.toUpperCase() + " Welcome to the Account Management System");
-
-        Customer c1 = new Customer("Umar", "Islamabad", "123456789");
-        
-        c1.openNewAccount(1);
-        c1.getCustomerCheckingAccount().makeDeposit(1000);
-        printBlue("--------------");
-        printBlue("--------------");
-        c1.openNewAccount(2);
-        printBlue("--------------");
-        c1.openNewAccount(1);
-        printBlue("--------------");
-        c1.openNewAccount(2);
-        printBlue("--------------");
-        c1.openNewAccount(1);
-        printBlue("--------------");
-        c1.openNewAccount(2);
-        printBlue("--------------");
-
-
-
-        
     }
 
 }

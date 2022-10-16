@@ -58,5 +58,5 @@ abstract class Account {
     abstract void transferAmount(Account destAccount);
     abstract double calculateZakat();
     abstract void withdraw(double amount); // different limit of withdrawal for different accounts
-
+    abstract void printDeductionRecord();
 }
